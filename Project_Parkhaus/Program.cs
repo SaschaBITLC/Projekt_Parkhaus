@@ -2,12 +2,11 @@
 {
     internal class Program
     {
+        static String[] parkhaus = new String[100];
+        static int ersteFreieParkstelle, aktuelleStunde;
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            //test test
-            //TEST
-            //test
+            
         }
     }
 }
