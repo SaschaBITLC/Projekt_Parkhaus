@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="F719AA60F69E93ED">
-  <PROJECT FORMAT="1.00" NAME="Parkhaus_Main" AUTHOR="niemand" CREATED="2026.07.13 09:00:11" MODIFIED="2026.07.14 10:38:09">
+<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="5E0CAAF072D39A93">
+  <PROJECT FORMAT="1.00" NAME="Parkhaus_Main" AUTHOR="niemand" CREATED="2026.07.13 09:00:11" MODIFIED="2026.07.14 11:39:45">
     <DIAGRAMS>
-      <DIAGRAM FORMAT="1.00" ID="0" NAME="Hauptprogramm 1" CREATED="2026.07.13 09:00:29" MODIFIED="2026.07.14 10:38:09">
+      <DIAGRAM FORMAT="1.00" ID="0" NAME="Hauptprogramm 1" CREATED="2026.07.13 09:00:29" MODIFIED="2026.07.14 11:39:45">
         <LAYOUT FORMAT="1.00" COLUMNS="5" ROWS="22">
           <ENTRIES>
             <ENTRY COLUMN="0" ROW="2">
@@ -177,16 +177,6 @@ Anzeigen des Menüs(parken/rausfahren/wegfahren)]]></TEXT>
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="4" ROW="9">
-              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="158">
-                <TEXT><![CDATA[Wegfahren]]></TEXT>
-              </FIGURE>
-            </ENTRY>
-            <ENTRY COLUMN="4" ROW="17">
-              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="166">
-                <TEXT><![CDATA[]]></TEXT>
-              </FIGURE>
-            </ENTRY>
           </ENTRIES>
         </LAYOUT>
         <CONNECTIONS>
@@ -201,7 +191,6 @@ Anzeigen des Menüs(parken/rausfahren/wegfahren)]]></TEXT>
           <CONNECTION FORMAT="1.00" ID="157" FROM="50" TO="176" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="155" FROM="33" TO="47" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="85" FROM="6" TO="82" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="160" FROM="158" TO="166" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="156" FROM="47" TO="170" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="100" FROM="97" TO="112" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="142" FROM="140" TO="138" TEXT="" />
@@ -217,8 +206,6 @@ Anzeigen des Menüs(parken/rausfahren/wegfahren)]]></TEXT>
           <CONNECTION FORMAT="1.00" ID="148" FROM="146" TO="139" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="153" FROM="139" TO="152" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="154" FROM="152" TO="120" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="159" FROM="33" TO="158" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="168" FROM="166" TO="39" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="169" FROM="39" TO="6" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="180" FROM="178" TO="174" TEXT="ja" />
           <CONNECTION FORMAT="1.00" ID="175" FROM="174" TO="50" TEXT="" />
