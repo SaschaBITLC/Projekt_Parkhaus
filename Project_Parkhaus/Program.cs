@@ -129,6 +129,10 @@ namespace Project_Parkhaus
                     //Ausfahrt starten
                     ausfahren();
                     break;
+                default:
+                    Console.WriteLine("Es ist ein Fehlre aufgetreten. Versuchen Sie es bitte erneut.");
+                    break;
+
             }
 
         }
@@ -149,17 +153,47 @@ namespace Project_Parkhaus
                 Console.WriteLine("Ungültige Eingabe! Geben sie eine 1 oder eine 2 ein!");
                 optionEingabe();
             }
-            return 0;
+            return -1;
         }
 
         static void parken()
         {
-
+            int ticket = ticketNummerValidieren();
         }
 
         static void ausfahren()
         {
 
+
+        }
+
+        //Fordert den Nutzer auf die Ticketnummer einzugeben und prüft diese. Falls ungültig, fordert den Nutzer auf es nochmal zu versuchen
+        static int ticketNummerValidieren()
+        {
+            Console.WriteLine("Geben Sie bitte Ihre Ticketnummer ein!(Nur Zahlen von 1 bis 100 zulässig");
+            string eingabe = Console.ReadLine()!;
+            //Prüfen ob die eingabe gültig ist
+            if (eingabe != null && char.IsDigit(eingabe[0]) && (int.Parse(eingabe) >= 1 || int.Parse(eingabe) <= 100))
+            {
+                //Eingabe convertieren
+                int nummer = int.Parse(eingabe);
+                for(int i = 0; i < parkhaus.Length; i++)
+                {
+                    if (nummer == ticketNummerKonvertrieren(parkhaus[i]){
+                        //ticket gefunden!
+                        return nummer;
+                    }
+                }
+                //Kein Ticket mit der eingegebenen Nummer gefunden. Starte die Eingabe erneut.
+                Console.WriteLine("Ticketnummer nicht gefunden. Bitte versuchen Sie es erneut!");
+                ticketNummerValidieren();
+            }
+            else
+            {
+                Console.WriteLine("Ungültige Eingabe! Nur Zahlen von 1 bis 100 zulässig!");
+                ticketNummerValidieren();
+            }
+            return -1;
         }
     }
 }
