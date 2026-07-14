@@ -8,7 +8,7 @@ namespace Project_Parkhaus
         //Speichert die Autodaten im Format "Zeitstempel,Ticketnummer". Jedes Element repräsentiert einen Parkplatz
         static String[] parkhaus;
 
-        static int ersteFreieParkstelle, stunde, anzahlFreieParkplaetze;
+        static int ersteFreieParkstelle, stunde, anzahlFreieParkplaetze, ticketNummer;
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
@@ -56,9 +56,9 @@ namespace Project_Parkhaus
 
                 }
             }
-            if(anzahlFreieParkplaetze > 0)
+            if (anzahlFreieParkplaetze > 0)
             {
-            parkhaus[ersteFreieParkstelle] = "aaa";
+                parkhaus[ersteFreieParkstelle] = "aaa";
 
             }
         }
@@ -99,7 +99,7 @@ namespace Project_Parkhaus
 
             Console.WriteLine("Herzlich Willkommen im Parkhaus Brackel\n");
             Console.WriteLine($"Freie Parkplätze: {anzahlFreieParkplaetze}");
-            Console.WriteLine($"Lokale Zeit: {stunde%24}:00\n" );
+            Console.WriteLine($"Lokale Zeit: {stunde % 24}:00\n");
 
             Console.WriteLine("Parken : 1 Stunde   1 €");
             Console.WriteLine("Parken : 2 Stunden  2 €");
@@ -109,9 +109,9 @@ namespace Project_Parkhaus
 
 
             // Falls keine Parkplätze, Parken nicht möglich
-            if(anzahlFreieParkplaetze > 0)
+            if (anzahlFreieParkplaetze > 0)
             {
-                 Console.WriteLine("1. Parken");
+                Console.WriteLine("1. Parken");
             }
             else
             {
@@ -158,12 +158,21 @@ namespace Project_Parkhaus
 
         static void parken()
         {
-            int ticket = ticketNummerValidieren();
+            ticketNummer = ersteFreieParkstelle + 1;
+            parkhaus[ersteFreieParkstelle] = stunde + 1.ToString() + "," + ticketNummer.ToString();
+            Console.WriteLine($"Ihre Parkplatznummer: {ersteFreieParkstelle} \n" +
+                $"Ihre Ticketnummer: {ticketNummer}\nBitte mit Eingabetaste bestätigen!");
+
+            Console.ReadLine();
+
         }
 
         static void ausfahren()
         {
-
+            int ticket = ticketNummerValidieren();
+            //bei uns entspricht die Ticketnummer dem Index im parkaus-Array+1. Also Kalkulationen entsprechend anpassen
+            int stundenGeparkt = stunde - stundenKonvertieren(parkhaus[ticket - 1]);
+            //den geschuldeten Geldbetrag ausrechnen
 
         }
 
@@ -177,9 +186,10 @@ namespace Project_Parkhaus
             {
                 //Eingabe convertieren
                 int nummer = int.Parse(eingabe);
-                for(int i = 0; i < parkhaus.Length; i++)
+                for (int i = 0; i < parkhaus.Length; i++)
                 {
-                    if (nummer == ticketNummerKonvertrieren(parkhaus[i]){
+                    if (nummer == ticketNummerKonvertrieren(parkhaus[i]))
+                    {
                         //ticket gefunden!
                         return nummer;
                     }
