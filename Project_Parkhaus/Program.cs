@@ -56,6 +56,11 @@ namespace Project_Parkhaus
 
                 }
             }
+            if(anzahlFreieParkplaetze > 0)
+            {
+            parkhaus[ersteFreieParkstelle] = "aaa";
+
+            }
         }
 
         //Gibt den Stundenteil der gespeicheten Autodaten
@@ -90,25 +95,71 @@ namespace Project_Parkhaus
             */
 
 
-            // IF / Else -Verzweigung 
 
 
             Console.WriteLine("Herzlich Willkommen im Parkhaus Brackel\n");
-            Console.WriteLine("Parken : 1 Stunde   1 € \n");
-            Console.WriteLine("Parken : 2 Stunden  2 € \n");
-            Console.WriteLine("Parken : 4 Stunden  3 € \n");
-            Console.WriteLine("Parken : ganzer Tag 5 € \n");
-            Console.WriteLine("Bitte wählen Sie eine der folgenden Optionen:");
+            Console.WriteLine($"Freie Parkplätze: {anzahlFreieParkplaetze}");
+            Console.WriteLine($"Lokale Zeit: {stunde%24}:00\n" );
+
+            Console.WriteLine("Parken : 1 Stunde   1 €");
+            Console.WriteLine("Parken : 2 Stunden  2 €");
+            Console.WriteLine("Parken : 4 Stunden  3 €");
+            Console.WriteLine("Parken : ganzer Tag 5 €\n");
+            Console.WriteLine("Bitte wählen Sie bitte die 1 fürs Parken oder die 2 für die Ausfahrt");
 
 
-            Console.WriteLine("1. Parken");
+            // Falls keine Parkplätze, Parken nicht möglich
+            if(anzahlFreieParkplaetze > 0)
+            {
+                 Console.WriteLine("1. Parken");
+            }
+            else
+            {
+                Console.WriteLine("Es sind leider alle Parkplätze besetzt.");
+            }
             Console.WriteLine("2. Ausfahrt");
 
+            switch (optionEingabe())
+            {
+                case 1:
+                    //Parken starten
+                    parken();
+                    break;
+                case 2:
+                    //Ausfahrt starten
+                    ausfahren();
+                    break;
+            }
 
-            // ELSE TEIL
+        }
 
+        //Gibt eine 1 oder eine 2 zurück, ansonsten restartet rekursiv bis eine gültige Eingabe erfolgt
+        static int optionEingabe()
+        {
+            string eingabe = Console.ReadLine()!;
+            //Prüfen ob die eingabe gültig ist
+            if (eingabe != null && char.IsDigit(eingabe[0]) && (int.Parse(eingabe) == 1 || int.Parse(eingabe) == 2))
+            {
+                //Eingabe convertieren
+                int nummer = int.Parse(eingabe);
+                return nummer;
+            }
+            else
+            {
+                Console.WriteLine("Ungültige Eingabe! Geben sie eine 1 oder eine 2 ein!");
+                optionEingabe();
+            }
+            return 0;
+        }
 
-            Console.WriteLine("Es sind leider alle Parkplätze besetzt.");
+        static void parken()
+        {
+
+        }
+
+        static void ausfahren()
+        {
+
         }
     }
 }
