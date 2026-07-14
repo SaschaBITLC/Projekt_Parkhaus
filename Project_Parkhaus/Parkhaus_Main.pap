@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="96DA248A0A3F032C">
-  <PROJECT FORMAT="1.00" NAME="Parkhaus_Main" AUTHOR="niemand" CREATED="2026.07.13 09:00:11" MODIFIED="2026.07.14 08:32:01">
+<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="F719AA60F69E93ED">
+  <PROJECT FORMAT="1.00" NAME="Parkhaus_Main" AUTHOR="niemand" CREATED="2026.07.13 09:00:11" MODIFIED="2026.07.14 10:38:09">
     <DIAGRAMS>
-      <DIAGRAM FORMAT="1.00" ID="0" NAME="Hauptprogramm 1" CREATED="2026.07.13 09:00:29" MODIFIED="2026.07.14 08:32:01">
-        <LAYOUT FORMAT="1.00" COLUMNS="4" ROWS="21">
+      <DIAGRAM FORMAT="1.00" ID="0" NAME="Hauptprogramm 1" CREATED="2026.07.13 09:00:29" MODIFIED="2026.07.14 10:38:09">
+        <LAYOUT FORMAT="1.00" COLUMNS="5" ROWS="22">
           <ENTRIES>
             <ENTRY COLUMN="0" ROW="2">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="112">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="18">
+            <ENTRY COLUMN="0" ROW="19">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="97">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
@@ -38,137 +38,151 @@
             <ENTRY COLUMN="1" ROW="10">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="122">
                 <TEXT><![CDATA[Ticketnummer erstellen
-Den ersten freien Platz belegen(vorher gespeichert);
-Plan Maximum: Nutzer kann selbst den Parkplatz wählen ODER wir geben ihm einen zufälligen]]></TEXT>
+Den ersten freien Platz belegen(vorher gespeichert);]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="1" ROW="16">
+            <ENTRY COLUMN="1" ROW="17">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="127">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="0" ANCHOR="True">
+            <ENTRY COLUMN="2" ROW="11">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="183">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="13">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="181">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="3" ROW="0" ANCHOR="True">
               <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
                 <TEXT><![CDATA[Hauptprogramm 1]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="1">
+            <ENTRY COLUMN="3" ROW="1">
               <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
                 <TEXT><![CDATA[Start]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="2">
+            <ENTRY COLUMN="3" ROW="2">
               <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="4" ASSOCIATE="6">
                 <TEXT><![CDATA[While true]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="3">
+            <ENTRY COLUMN="3" ROW="3">
               <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="116" ASSOCIATE="118">
                 <TEXT><![CDATA[for-loop:Validierung der freien Parkplätze + den ersten freien Parkplatze in einer Variable speichern]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="4">
+            <ENTRY COLUMN="3" ROW="4">
               <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="118" ASSOCIATE="116">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="5">
+            <ENTRY COLUMN="3" ROW="5">
               <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="136">
                 <TEXT><![CDATA[Gibt es freie Parkplätze?]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="7">
+            <ENTRY COLUMN="3" ROW="7">
               <FIGURE SUBTYPE="PapOutput" FORMAT="1.00" ID="120">
                 <TEXT><![CDATA[Anzeigen der Anzahl der Freien Parkplätze und der Akuellen Zeit. Anzeigen des Preiskonzeptes.
 Anzeigen des Menüs(parken/rausfahren/wegfahren)]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="8">
+            <ENTRY COLUMN="3" ROW="8">
               <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="8">
                 <TEXT><![CDATA[Parken oder Rausfahren oder Wegfahren]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="9">
+            <ENTRY COLUMN="3" ROW="9">
               <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="33">
-                <TEXT><![CDATA[Welche menüoption gewählt?]]></TEXT>
+                <TEXT><![CDATA[Welche Menüoption gewählt?]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="10">
+            <ENTRY COLUMN="3" ROW="10">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="47">
                 <TEXT><![CDATA[Rausfahren ja]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="11">
+            <ENTRY COLUMN="3" ROW="11">
               <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="170">
                 <TEXT><![CDATA[Eingabe von ticket nummer. Überlegen wie!]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="12">
+            <ENTRY COLUMN="3" ROW="12">
               <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="172" ASSOCIATE="174">
                 <TEXT><![CDATA[for loop, suchen des Platzes mit der Ticketnummer.]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="13">
+            <ENTRY COLUMN="3" ROW="13">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="178">
+                <TEXT><![CDATA[Gibt es diese Ticketnummer?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="3" ROW="14">
               <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="174" ASSOCIATE="172">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="14">
+            <ENTRY COLUMN="3" ROW="15">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="50">
                 <TEXT><![CDATA[parkplatz räumen + zeit zählen + preis zählen]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="15">
+            <ENTRY COLUMN="3" ROW="16">
               <FIGURE SUBTYPE="PapOutput" FORMAT="1.00" ID="176">
                 <TEXT><![CDATA[Ausgabe von Zeit und Kosten]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="16">
+            <ENTRY COLUMN="3" ROW="17">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="39">
                 <TEXT><![CDATA[aktuelle zeit + 1 stunde]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="17">
+            <ENTRY COLUMN="3" ROW="18">
               <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="6" ASSOCIATE="4">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="18">
+            <ENTRY COLUMN="3" ROW="19">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="82">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="19">
+            <ENTRY COLUMN="3" ROW="20">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="92">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="20">
+            <ENTRY COLUMN="3" ROW="21">
               <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
                 <TEXT><![CDATA[Ende]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="3" ROW="5">
+            <ENTRY COLUMN="4" ROW="5">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="140">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="3" ROW="6">
+            <ENTRY COLUMN="4" ROW="6">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="138">
                 <TEXT><![CDATA[nein, Menüpunkt "Parken" nicht anzeigen, "Freie Parkplätze" durch "KEINE FREIEN PARKPLÄTZE" ersetzen]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="3" ROW="7">
+            <ENTRY COLUMN="4" ROW="7">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="149">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="3" ROW="9">
+            <ENTRY COLUMN="4" ROW="9">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="158">
                 <TEXT><![CDATA[Wegfahren]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="3" ROW="16">
+            <ENTRY COLUMN="4" ROW="17">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="166">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
@@ -206,10 +220,14 @@ Anzeigen des Menüs(parken/rausfahren/wegfahren)]]></TEXT>
           <CONNECTION FORMAT="1.00" ID="159" FROM="33" TO="158" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="168" FROM="166" TO="39" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="169" FROM="39" TO="6" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="171" FROM="170" TO="172" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="180" FROM="178" TO="174" TEXT="ja" />
           <CONNECTION FORMAT="1.00" ID="175" FROM="174" TO="50" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="173" FROM="172" TO="174" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="173" FROM="172" TO="178" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="177" FROM="176" TO="39" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="171" FROM="170" TO="172" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="182" FROM="178" TO="181" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="184" FROM="181" TO="183" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="185" FROM="183" TO="170" TEXT="" />
         </CONNECTIONS>
       </DIAGRAM>
     </DIAGRAMS>
