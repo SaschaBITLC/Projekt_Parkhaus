@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="9942D2DA0771AD66">
-  <PROJECT FORMAT="1.00" NAME="Parkhaus_Main" AUTHOR="niemand" CREATED="2026.07.13 09:00:11" MODIFIED="2026.07.13 15:49:22">
+<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="96DA248A0A3F032C">
+  <PROJECT FORMAT="1.00" NAME="Parkhaus_Main" AUTHOR="niemand" CREATED="2026.07.13 09:00:11" MODIFIED="2026.07.14 08:32:01">
     <DIAGRAMS>
-      <DIAGRAM FORMAT="1.00" ID="0" NAME="Hauptprogramm 1" CREATED="2026.07.13 09:00:29" MODIFIED="2026.07.13 15:49:22">
+      <DIAGRAM FORMAT="1.00" ID="0" NAME="Hauptprogramm 1" CREATED="2026.07.13 09:00:29" MODIFIED="2026.07.14 08:32:01">
         <LAYOUT FORMAT="1.00" COLUMNS="4" ROWS="21">
           <ENTRIES>
             <ENTRY COLUMN="0" ROW="2">
@@ -90,7 +90,7 @@ Anzeigen des Menüs(parken/rausfahren/wegfahren)]]></TEXT>
             </ENTRY>
             <ENTRY COLUMN="2" ROW="9">
               <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="33">
-                <TEXT><![CDATA[?]]></TEXT>
+                <TEXT><![CDATA[Welche menüoption gewählt?]]></TEXT>
               </FIGURE>
             </ENTRY>
             <ENTRY COLUMN="2" ROW="10">
