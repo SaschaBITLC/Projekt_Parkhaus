@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="5E0CAAF072D39A93">
-  <PROJECT FORMAT="1.00" NAME="Parkhaus_Main" AUTHOR="niemand" CREATED="2026.07.13 09:00:11" MODIFIED="2026.07.14 11:39:45">
+<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="956D341FA0A8F215">
+  <PROJECT FORMAT="1.00" NAME="Parkhaus_Main" AUTHOR="niemand" CREATED="2026.07.13 09:00:11" MODIFIED="2026.07.14 15:53:41">
     <DIAGRAMS>
-      <DIAGRAM FORMAT="1.00" ID="0" NAME="Hauptprogramm 1" CREATED="2026.07.13 09:00:29" MODIFIED="2026.07.14 11:39:45">
+      <DIAGRAM FORMAT="1.00" ID="0" NAME="Hauptprogramm 1" CREATED="2026.07.13 09:00:29" MODIFIED="2026.07.14 15:53:41">
         <LAYOUT FORMAT="1.00" COLUMNS="5" ROWS="22">
           <ENTRIES>
             <ENTRY COLUMN="0" ROW="2">
@@ -38,7 +38,7 @@
             <ENTRY COLUMN="1" ROW="10">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="122">
                 <TEXT><![CDATA[Ticketnummer erstellen
-Den ersten freien Platz belegen(vorher gespeichert);]]></TEXT>
+Den ersten freien Parkplatz belegen(vorher gespeichert);]]></TEXT>
               </FIGURE>
             </ENTRY>
             <ENTRY COLUMN="1" ROW="17">

@@ -27,6 +27,17 @@ namespace Project_Parkhaus
 
         }
 
+        //Initialisiert das Array mit leeren Strings. Bei einer normalen Initialisierung sind die Strings null.
+        //Leere Strings sind nötig für spätere Checks.
+        static void parkhausIntitalizieren()
+        {
+            parkhaus = new String[5];
+            for (int i = 0; i < parkhaus.Length; i++)
+            {
+                parkhaus[i] = string.Empty;
+            }
+        }
+
         //Anzahl der freien Parkplätze ermitteln
         static void freieParkplaetzeErmitteln()
         {
@@ -54,11 +65,6 @@ namespace Project_Parkhaus
 
                 }
             }
-            if (anzahlFreieParkplaetze > 0)
-            {
-                parkhaus[ersteFreieParkstelle] = "aaa";
-
-            }
         }
 
         //Gibt den Stundenteil der gespeicheten Autodaten
@@ -73,16 +79,6 @@ namespace Project_Parkhaus
             return Convert.ToInt32(auto.Split(",")[1]);
         }
 
-        //Initialisiert das Array mit leeren Strings. Bei einer normalen Initialisierung sind die Strings null.
-        //Leere Strings sind nötig für spätere Checks.
-        static void parkhausIntitalizieren()
-        {
-            parkhaus = new String[10];
-            for (int i = 0; i < parkhaus.Length; i++)
-            {
-                parkhaus[i] = string.Empty;
-            }
-        }
         static void menueAnzeigen()
         {
             Console.WriteLine("Herzlich Willkommen im Parkhaus Brackel\n");
@@ -188,6 +184,10 @@ namespace Project_Parkhaus
             {
                 Console.WriteLine($"Sie parkten {stundenGeparkt} Stunden und Ihr Parkpreis beträgt {stundenGeparkt * 2.5:F2}€");
             }
+
+            Console.WriteLine("\nBitte mit Eingabetaste bestätigen!\n");
+
+            Console.ReadLine();
 
             //Parkplatz räumen
             parkhaus[ticket - 1] = "";
