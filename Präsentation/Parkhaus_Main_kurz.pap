@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="C31E2E98DA978437">
+  <PROJECT FORMAT="1.00" NAME="Parkhaus_Main" AUTHOR="niemand" CREATED="2026.07.13 09:00:11" MODIFIED="2026.07.15 12:28:29">
+    <DIAGRAMS>
+      <DIAGRAM FORMAT="1.00" ID="0" NAME="Parkhaus" CREATED="2026.07.13 09:00:29" MODIFIED="2026.07.15 12:28:29">
+        <LAYOUT FORMAT="1.00" COLUMNS="6" ROWS="15">
+          <ENTRIES>
+            <ENTRY COLUMN="0" ROW="3">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="112">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="13">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="97">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="6">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="139">
+                <TEXT><![CDATA[nichts machen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="7">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="152">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="8">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="41">
+                <TEXT><![CDATA[Parken]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="9">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="122">
+                <TEXT><![CDATA[Ticketnummer erstellen
+und ersten freien Parkplatz belegen(vorher gespeichert)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="11">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="127">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="0" ANCHOR="True">
+              <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
+                <TEXT><![CDATA[Parkhaus]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="1">
+              <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
+                <TEXT><![CDATA[Start]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="2">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="209">
+                <TEXT><![CDATA[Variablen deklarieren und initialisieren]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="3">
+              <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="4" ASSOCIATE="6">
+                <TEXT><![CDATA[While true]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="4">
+              <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="116" ASSOCIATE="118">
+                <TEXT><![CDATA[for-Schleife: freie Parkplätze zählen + den ersten freien Parkplatz speichern]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="5">
+              <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="118" ASSOCIATE="116">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="6">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="136">
+                <TEXT><![CDATA[Gibt es freie Parkplätze?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="7">
+              <FIGURE SUBTYPE="PapOutput" FORMAT="1.00" ID="120">
+                <TEXT><![CDATA[Freie Parkplätze, aktuelle Zeit, Preiskonzept und Menü anzeigen.]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="8">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="33">
+                <TEXT><![CDATA[Parken oder Ausfahrt gewählt?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="9">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="50">
+                <TEXT><![CDATA[Parkplatz räumen + Zeit zählen + Preis zählen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="10">
+              <FIGURE SUBTYPE="PapOutput" FORMAT="1.00" ID="176">
+                <TEXT><![CDATA[Ausgabe der Zeit und der Kosten]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="11">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="39">
+                <TEXT><![CDATA[Aktuelle Zeit inkrementiern (+1 Stunde)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="12">
+              <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="6" ASSOCIATE="4">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="13">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="82">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="14">
+              <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
+                <TEXT><![CDATA[Ende]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="3" ROW="9">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="202">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="3" ROW="13">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="203">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="4" ROW="6">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="138">
+                <TEXT><![CDATA[Menüpunkt "Parken" ausblenden]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="4" ROW="7">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="149">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="4" ROW="9">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="183">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="4" ROW="11">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="181">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="5" ROW="8">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="47">
+                <TEXT><![CDATA[Ausfahrt]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="5" ROW="9">
+              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="170">
+                <TEXT><![CDATA[Eingabe der Ticketnummer.]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="5" ROW="10">
+              <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="188" ASSOCIATE="189">
+                <TEXT><![CDATA[for-Schleife, Suchen des Parkplatz mit der passenden Ticketnummer.]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="5" ROW="11">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="178">
+                <TEXT><![CDATA[Gibt es diese Ticketnummer?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="5" ROW="12">
+              <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="189" ASSOCIATE="188">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="5" ROW="13">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="199">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+          </ENTRIES>
+        </LAYOUT>
+        <CONNECTIONS>
+          <CONNECTION FORMAT="1.00" ID="3" FROM="1" TO="209" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="37" FROM="33" TO="41" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="116" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="119" FROM="118" TO="136" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="121" FROM="120" TO="33" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="117" FROM="116" TO="118" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="157" FROM="50" TO="176" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="186" FROM="33" TO="47" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="85" FROM="6" TO="82" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="100" FROM="97" TO="112" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="141" FROM="136" TO="138" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="114" FROM="112" TO="4" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="211" FROM="170" TO="188" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="123" FROM="41" TO="122" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="126" FROM="122" TO="127" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="150" FROM="138" TO="149" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="151" FROM="149" TO="120" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="145" FROM="136" TO="139" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="153" FROM="139" TO="152" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="154" FROM="152" TO="120" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="169" FROM="39" TO="6" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="191" FROM="178" TO="189" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="177" FROM="176" TO="39" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="190" FROM="188" TO="178" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="187" FROM="47" TO="170" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="200" FROM="189" TO="199" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="195" FROM="178" TO="181" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="196" FROM="181" TO="183" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="197" FROM="183" TO="170" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="198" FROM="127" TO="39" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="205" FROM="203" TO="202" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="201" FROM="199" TO="203" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="208" FROM="202" TO="50" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="207" FROM="82" TO="97" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="210" FROM="209" TO="4" TEXT="" />
+        </CONNECTIONS>
+      </DIAGRAM>
+    </DIAGRAMS>
+  </PROJECT>
+</FRAME>
