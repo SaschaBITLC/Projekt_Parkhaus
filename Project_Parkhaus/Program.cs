@@ -117,11 +117,9 @@ namespace Project_Parkhaus
 
             // 1. HEADER-BEREICH (Doppelrahmen)
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("╔════════════════════════════════════════════════════════╗");
             Console.WriteLine("║          HERZLICH WILLKOMMEN IM PARKHAUS BRACKEL       ║");
             Console.WriteLine("╚════════════════════════════════════════════════════════╝");
-            Console.ResetColor();
 
             // 2. STATUS-BEREICH
             string formatierteZeit = $"{(stunde % 24):00}:00";
@@ -148,7 +146,6 @@ namespace Project_Parkhaus
             zeigeParkplatz();
 
             // 3. TARIF-BEREICH (Doppelrahmen)
-            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("╔═══════════════════ UNSERE TARIFE ══════════════════════╗");
             Console.WriteLine("║  • 1 Stunde            : 1,00 €                        ║");
             Console.WriteLine("║  • 2 Stunden           : 2,00 €                        ║");
@@ -161,9 +158,7 @@ namespace Project_Parkhaus
 
             // 4. OPTIONEN-BEREICH
             Console.WriteLine("Bitte wählen Sie eine Option:");
-            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("══════════════════════════════════════════════════════════");
-            Console.ResetColor();
 
             bool parkenMoeglich = anzahlFreieParkplaetze > 0;
             bool ausfahrtMoeglich = anzahlFreieParkplaetze < parkhaus.Length;
@@ -191,7 +186,6 @@ namespace Project_Parkhaus
             }
             Console.ResetColor();
 
-            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("══════════════════════════════════════════════════════════");
             Console.ResetColor();
             Console.Write("\nIhre Auswahl > ");
@@ -368,7 +362,7 @@ namespace Project_Parkhaus
             Console.WriteLine($"╚{rahmenLinie}╝");
             Console.ResetColor();
 
-            Console.WriteLine("\nBitte mit der Eingabetaste bestätigen!\n");
+            Console.WriteLine("\nBitte drücken Sie die Eingabetaste um den Zahlvorgang abzuschließen! Wir wünschen Ihnen eine schöne Weiterfahrt!\n");
             Console.ReadLine();
 
             //Parkplatz räumen
