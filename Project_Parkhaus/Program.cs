@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.Design;
+using System.ComponentModel.Design;
 using System.Text;
 
 namespace Project_Parkhaus
@@ -20,14 +20,21 @@ namespace Project_Parkhaus
                 freieParkplaetzeErmitteln();
                 menueAnzeigen();
 
-                //test
-                Console.WriteLine("Test Readline");
-                Console.ReadLine();
-
                 //Stunde inkrementieren
                 stunde++;
             }
 
+        }
+
+        //Initialisiert das Array mit leeren Strings. Bei einer normalen Initialisierung sind die Strings null.
+        //Leere Strings are nötig für spätere Checks.
+        static void parkhausIntitalizieren()
+        {
+            parkhaus = new String[100];
+            for (int i = 0; i < parkhaus.Length; i++)
+            {
+                parkhaus[i] = string.Empty;
+            }
         }
 
         //Anzahl der freien Parkplätze ermitteln
@@ -70,45 +77,345 @@ namespace Project_Parkhaus
             return Convert.ToInt32(auto.Split(",")[1]);
         }
 
-        //Initialisiert das Array mit leeren Strings. Bei einer normalen Initialisierung sind die Strings null.
-        //Leere Strings sind nötig für spätere Checks.
-        static void parkhausIntitalizieren()
+        static void zeigeParkplatz()
         {
-            parkhaus = new String[100];
+            // Überschrift im passenden Stil vorbereiten
+            string titel = "AKTUELLE PARKPLATZBELEGUNG";
+            int nutzBreite = 38; // Feste Breite für die Grid-Box-Optik
+            string rahmenLinie = new string('═', nutzBreite + 2);
+            string formatiertTitel = titel.PadRight(nutzBreite);
+
+            Console.WriteLine($"╔{rahmenLinie}╗");
+            Console.WriteLine($"║ {formatiertTitel} ║");
+            Console.WriteLine($"╚{rahmenLinie}╝\n");
+
+            // Wir laufen durch dein echtes Parkhaus-Array
             for (int i = 0; i < parkhaus.Length; i++)
             {
-                parkhaus[i] = string.Empty;
+                // Check, ob der Platz belegt ist (String ist nicht leer)
+                bool istBelegt = !string.IsNullOrEmpty(parkhaus[i]);
+
+                // Symbol bestimmen: Auto-Emoji bei belegt, sonst die Parkplatznummer (schick formatiert)
+                // (i + 1).ToString("D2") macht aus Platz 1 -> "01", Platz 2 -> "02" usw., damit alles symmetrisch bleibt
+                string symbol = istBelegt ? " 🚗 " : $"[{(i + 1).ToString("D2")}]";
+
+                // Das Symbol auf der Konsole ausgeben
+                Console.Write(symbol + " ");
+
+                // Umbruch-Logik: Nach jeweils 10 Parkplätzen wird eine neue Reihe angefangen
+                if ((i + 1) % 10 == 0)
+                {
+                    Console.WriteLine();
+                }
             }
+            Console.WriteLine("\n");
         }
+
         static void menueAnzeigen()
         {
-            /*
-            Console.WriteLine("1. Auto einparken");
-            Console.WriteLine("2. Auto ausparken");
-            Console.WriteLine("3. Parkhausstatus anzeigen");
-            Console.WriteLine("4. Beenden");
-            */
+            Console.Clear();
 
+            // 1. HEADER-BEREICH (Doppelrahmen)
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("╔════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║          HERZLICH WILLKOMMEN IM PARKHAUS BRACKEL       ║");
+            Console.WriteLine("╚════════════════════════════════════════════════════════╝");
+            Console.ResetColor();
 
-            // IF / Else -Verzweigung 
+            // 2. STATUS-BEREICH
+            string formatierteZeit = $"{(stunde % 24):00}:00";
+            Console.Write("  Lokale Zeit: ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(formatierteZeit);
+            Console.ResetColor();
 
+            Console.Write("  Freie Parkplätze: ");
+            if (anzahlFreieParkplaetze > 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{anzahlFreieParkplaetze} Plätze frei");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("VOLLBESETZT");
+            }
+            Console.ResetColor();
+            Console.WriteLine();
 
-            Console.WriteLine("Herzlich Willkommen im Parkhaus Brackel\n");
-            Console.WriteLine("Parken : 1 Stunde   1 € \n");
-            Console.WriteLine("Parken : 2 Stunden  2 € \n");
-            Console.WriteLine("Parken : 4 Stunden  3 € \n");
-            Console.WriteLine("Parken : ganzer Tag 5 € \n");
-            Console.WriteLine("Bitte wählen Sie eine der folgenden Optionen:");
+            //Zeige die Parkplatzbelegung
+            zeigeParkplatz();
 
+            // 3. TARIF-BEREICH (Doppelrahmen)
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("╔═══════════════════ UNSERE TARIFE ══════════════════════╗");
+            Console.WriteLine("║  • 1 Stunde            : 1,00 €                        ║");
+            Console.WriteLine("║  • 2 Stunden           : 2,00 €                        ║");
+            Console.WriteLine("║  • 4 Stunden           : 3,00 €                        ║");
+            Console.WriteLine("║  • Ganzer Tag          : 5,00 €                        ║");
+            Console.WriteLine("║  • Länger als 24 Std.  : 2,50 € / Stunde               ║");
+            Console.WriteLine("╚════════════════════════════════════════════════════════╝");
+            Console.ResetColor();
+            Console.WriteLine();
 
-            Console.WriteLine("1. Parken");
-            Console.WriteLine("2. Ausfahrt");
+            // 4. OPTIONEN-BEREICH
+            Console.WriteLine("Bitte wählen Sie eine Option:");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("══════════════════════════════════════════════════════════");
+            Console.ResetColor();
 
+            bool parkenMoeglich = anzahlFreieParkplaetze > 0;
+            bool ausfahrtMoeglich = anzahlFreieParkplaetze < parkhaus.Length;
 
-            // ELSE TEIL
+            if (parkenMoeglich)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("  [1] Parken");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("  [-] Parken nicht möglich (Parkhaus ist voll)");
+            }
 
+            if (ausfahrtMoeglich)
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("  [2] Ausfahrt");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine("  [-] Keine Autos im Parkhaus zum Ausfahren");
+            }
+            Console.ResetColor();
 
-            Console.WriteLine("Es sind leider alle Parkplätze besetzt.");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("══════════════════════════════════════════════════════════");
+            Console.ResetColor();
+            Console.Write("\nIhre Auswahl > ");
+
+            // 5. EINGABE & LOGIK (Auswertung und Validierung der Logik-Zustände)
+            int eingabe = optionEingabe();
+
+            switch (eingabe)
+            {
+                case 1:
+                    if (parkenMoeglich)
+                    {
+                        parken();
+                    }
+                    else
+                    {
+                        ZeigeFehler("Das Parkhaus ist leider voll. Sie können derzeit nicht parken.");
+                        menueAnzeigen(); // Zurück zum Menü für einen neuen Versuch
+                    }
+                    break;
+
+                case 2:
+                    if (ausfahrtMoeglich)
+                    {
+                        ausfahren();
+                    }
+                    else
+                    {
+                        ZeigeFehler("Es parken gerade keine Autos!");
+                        menueAnzeigen(); // Zurück zum Menü für einen neuen Versuch
+                    }
+                    break;
+
+                default:
+                    // Wird theoretisch nicht erreicht, da optionEingabe nur 1 oder 2 zurücklassen darf
+                    ZeigeFehler("Ungültige Auswahl.");
+                    menueAnzeigen();
+                    break;
+            }
+        }
+
+        // Hilfsmethode für Fehler im passenden Stil
+        static void ZeigeFehler(string nachricht)
+        {
+            int innenBreite = nachricht.Length + 10;
+            string rahmenLinie = new string('═', innenBreite);
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"\n╔{rahmenLinie}╗");
+            Console.WriteLine($"║ FEHLER: {nachricht} ║");
+            Console.WriteLine($"╚{rahmenLinie}╝");
+            Console.ResetColor();
+
+            Console.WriteLine("\nDrücken Sie eine beliebige Taste, um fortzufahren...");
+            Console.ReadKey();
+        }
+
+        // Liest Nutzereingaben. Gibt garantiert eine gültige 1 oder 2 zurück.
+        static int optionEingabe()
+        {
+            string eingabe = Console.ReadLine()!;
+
+            // Robust prüfen, ob die Eingabe eine 1 oder 2 ist
+            if (eingabe == "1" || eingabe == "2")
+            {
+                return int.Parse(eingabe);
+            }
+            else
+            {
+                ZeigeFehler("Ungültige Eingabe! Geben Sie bitte eine 1 oder eine 2 ein!");
+
+                // Da die Eingabe fehlerhaft war, müssen wir das Menü neu zeichnen,
+                // damit der User sieht, was er eigentlich auswählen durfte.
+                menueAnzeigen();
+                return -1;
+            }
+        }
+
+        //"parkt" das Auto auf einm Parkplatz und teilt ihm eine Ticketnummer zu
+        static void parken()
+        {
+            int ticketNummer = ersteFreieParkstelle;
+            parkhaus[ersteFreieParkstelle] = stunde.ToString() + "," + ticketNummer.ToString();
+
+            // Die Daten ohne Rahmen-Formatierung
+            string titel = "TICKET ERFOLGREICH ERSTELLT";
+            string zeile1 = "• Ihr Parkplatz: " + (ersteFreieParkstelle + 1);
+            string zeile2 = "• Ihr Ticket   : Nr. " + (ticketNummer + 1);
+
+            // Wir ermitteln die Länge des längsten Textes
+            int maxTextLaenge = Math.Max(titel.Length, Math.Max(zeile1.Length, zeile2.Length));
+
+            // Die exakte Breite, die der Text im Inneren des Rahmens einnehmen soll (inklusive 2 Leerzeichen Puffer)
+            int nutzBreite = maxTextLaenge + 2;
+
+            // Die Rahmenlinien oben, mitte und unten entsprechen genau der Nutzbreite plus den 2 äußeren Leerzeichen
+            string rahmenLinie = new string('═', nutzBreite + 2);
+
+            // Wir füllen die Zeilen exakt auf die Nutzbreite auf
+            string formatiertTitel = titel.PadRight(nutzBreite);
+            string formatiertZeile1 = zeile1.PadRight(nutzBreite);
+            string formatiertZeile2 = zeile2.PadRight(nutzBreite);
+
+            // Ausgabe (Die Leerzeichen links und rechts vom Text sind jetzt fest im String verdrahtet)
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"╔{rahmenLinie}╗");
+            Console.WriteLine($"║ {formatiertTitel} ║");
+            Console.WriteLine($"╠{rahmenLinie}╣");
+            Console.WriteLine($"║ {formatiertZeile1} ║");
+            Console.WriteLine($"║ {formatiertZeile2} ║");
+            Console.WriteLine($"╚{rahmenLinie}╝");
+            Console.ResetColor();
+
+            Console.WriteLine("\nBitte mit der Eingabetaste bestätigen...");
+            Console.ReadLine();
+        }
+
+        static void ausfahren()
+        {
+            int ticket = ticketNummerValidieren();
+            int stundenGeparkt = stunde - stundenKonvertieren(parkhaus[ticket]);
+            double preis = 0;
+
+            //den geschuldeten Geldbetrag ausrechnen
+            if (stundenGeparkt <= 1)
+            {
+                preis = 1.00;
+            }
+            else if (stundenGeparkt <= 2)
+            {
+                preis = 2.00;
+            }
+            else if (stundenGeparkt <= 4)
+            {
+                preis = 3.00;
+            }
+            else if (stundenGeparkt <= 24)
+            {
+                preis = 5.00;
+            }
+            else
+            {
+                preis = stundenGeparkt * 2.50;
+            }
+
+            // Die Rohdaten ohne Rahmen-Formatierung
+            string titel = "PARKQUITTUNG";
+            string zeile1 = $"• Parkdauer : {stundenGeparkt} Stunde(n)";
+            string zeile2 = $"• Parkpreis : {preis.ToString("F2")} €";
+
+            // Wir ermitteln die Länge des längsten Textes
+            int maxTextLaenge = Math.Max(titel.Length, Math.Max(zeile1.Length, zeile2.Length));
+
+            // Die exakte Breite, die der Text im Inneren des Rahmens einnehmen soll (inklusive 2 Leerzeichen Puffer)
+            int nutzBreite = maxTextLaenge + 2;
+
+            // Die Rahmenlinien oben, mitte und unten entsprechen genau der Nutzbreite plus den 2 äußeren Leerzeichen
+            string rahmenLinie = new string('═', nutzBreite + 2);
+
+            // Wir füllen die Zeilen exakt auf die Nutzbreite auf
+            string formatiertTitel = titel.PadRight(nutzBreite);
+            string formatiertZeile1 = zeile1.PadRight(nutzBreite);
+            string formatiertZeile2 = zeile2.PadRight(nutzBreite);
+
+            // Quittungsausgabe
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"╔{rahmenLinie}╗");
+            Console.WriteLine($"║ {formatiertTitel} ║");
+            Console.WriteLine($"╠{rahmenLinie}╣");
+            Console.WriteLine($"║ {formatiertZeile1} ║");
+            Console.WriteLine($"║ {formatiertZeile2} ║");
+            Console.WriteLine($"╚{rahmenLinie}╝");
+            Console.ResetColor();
+
+            Console.WriteLine("\nBitte mit der Eingabetaste bestätigen!\n");
+            Console.ReadLine();
+
+            //Parkplatz räumen
+            parkhaus[ticket] = "";
+        }
+
+        static int ticketNummerValidieren()
+        {
+            string titel = "AUSFAHRTSKONTROLLE";
+
+            // Einfache Box-Berechnung analog zu den anderen Funktionen
+            int nutzBreite = titel.Length + 2;
+            string rahmenLinie = new string('═', nutzBreite + 2);
+            string formatiertTitel = titel.PadRight(nutzBreite);
+
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"╔{rahmenLinie}╗");
+            Console.WriteLine($"║ {formatiertTitel} ║");
+            Console.WriteLine($"╚{rahmenLinie}╝");
+            Console.ResetColor();
+            Console.Write("\nBitte geben Sie Ihre Ticketnummer ein (1-100) > ");
+
+            string eingabe = Console.ReadLine()!;
+
+            //Prüfen ob die eingabe gültig ist
+            if (eingabe != null && eingabe.Length > 0 && char.IsDigit(eingabe[0]) && int.Parse(eingabe) >= 1 && int.Parse(eingabe) <= 100)
+            {
+                //Eingabe convertieren. -1, da die Nutzereingaben mit 1 und nicht mit 0 anfangen!
+                int nummer = int.Parse(eingabe) - 1;
+                for (int i = 0; i < parkhaus.Length; i++)
+                {
+                    if (parkhaus[i] != null && parkhaus[i] != "" && nummer == ticketNummerKonvertrieren(parkhaus[i]))
+                    {
+                        //ticket gefunden!
+                        return nummer;
+                    }
+                }
+                //Kein Ticket mit der eingegebenen Nummer gefunden. Starte die Eingabe erneut.
+                ZeigeFehler("Ticketnummer nicht vergeben oder ungültig!");
+                return ticketNummerValidieren();
+            }
+            else
+            {
+                ZeigeFehler("Ungültige Eingabe! Nur Zahlen von 1 bis 100 zulässig!");
+                return ticketNummerValidieren();
+            }
         }
     }
 }
