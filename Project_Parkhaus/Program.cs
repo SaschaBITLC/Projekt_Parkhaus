@@ -27,7 +27,7 @@ namespace Project_Parkhaus
         }
 
         //Initialisiert das Array mit leeren Strings. Bei einer normalen Initialisierung sind die Strings null.
-        //Leere Strings are nötig für spätere Checks.
+        //Leere Strings sind nötig für spätere Checks.
         static void parkhausIntitalizieren()
         {
             parkhaus = new String[100];
@@ -60,7 +60,6 @@ namespace Project_Parkhaus
                 else
                 {
                     //Parkplatz belegt
-
                 }
             }
         }
@@ -77,11 +76,13 @@ namespace Project_Parkhaus
             return Convert.ToInt32(auto.Split(",")[1]);
         }
 
+        //Zeigt die aktuelle Parkplatzbelegung in einem 10xn Raster an. n hängt von der Anzahl der Parkplätze ab.
+        //Belegte Parkplätze werden mit einem Auto-Emoji dargestellt, freie Parkplätze mit ihrer Nummer in eckigen Klammern.
         static void zeigeParkplatz()
         {
             // Überschrift im passenden Stil vorbereiten
             string titel = "AKTUELLE PARKPLATZBELEGUNG";
-            int nutzBreite = 38; // Feste Breite für die Grid-Box-Optik
+            int nutzBreite = 38;
             string rahmenLinie = new string('═', nutzBreite + 2);
             string formatiertTitel = titel.PadRight(nutzBreite);
 
@@ -89,13 +90,13 @@ namespace Project_Parkhaus
             Console.WriteLine($"║ {formatiertTitel} ║");
             Console.WriteLine($"╚{rahmenLinie}╝\n");
 
-            // Wir laufen durch dein echtes Parkhaus-Array
+            // Wir laufen durch unser Parkhaus-Array
             for (int i = 0; i < parkhaus.Length; i++)
             {
                 // Check, ob der Platz belegt ist (String ist nicht leer)
                 bool istBelegt = !string.IsNullOrEmpty(parkhaus[i]);
 
-                // Symbol bestimmen: Auto-Emoji bei belegt, sonst die Parkplatznummer (schick formatiert)
+                // Symbol bestimmen: Auto-Emoji bei belegt, sonst die Parkplatznummer
                 // (i + 1).ToString("D2") macht aus Platz 1 -> "01", Platz 2 -> "02" usw., damit alles symmetrisch bleibt
                 string symbol = istBelegt ? " 🚗 " : $"[{(i + 1).ToString("D2")}]";
 
@@ -119,7 +120,7 @@ namespace Project_Parkhaus
             Console.WriteLine();
             Console.WriteLine("╔════════════════════════════════════════════════════════╗");
             Console.WriteLine("║          HERZLICH WILLKOMMEN IM PARKHAUS BRACKEL       ║");
-            Console.WriteLine("╚════════════════════════════════════════════════════════╝");
+            Console.WriteLine("╚════════════════════════════════════════════════════════╝\n");
 
             // 2. STATUS-BEREICH
             string formatierteZeit = $"{(stunde % 24):00}:00";
@@ -248,7 +249,7 @@ namespace Project_Parkhaus
         {
             string eingabe = Console.ReadLine()!;
 
-            // Robust prüfen, ob die Eingabe eine 1 oder 2 ist
+            // Prüfen, ob die Eingabe eine 1 oder 2 ist
             if (eingabe == "1" || eingabe == "2")
             {
                 return int.Parse(eingabe);
