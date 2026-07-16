@@ -220,6 +220,9 @@ namespace Project_Parkhaus
                     }
                     break;
 
+                case -1:
+                    //Eingabe war ungültig, das Menü wurde bereits neu gezeichnet, daher einfach zurückkehren
+                    break;
                 default:
                     // Wird theoretisch nicht erreicht, da optionEingabe nur 1 oder 2 zurücklassen darf
                     ZeigeFehler("Ungültige Auswahl.");
