@@ -131,7 +131,7 @@ namespace Project_Parkhaus
             if (anzahlFreieParkplaetze > 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{anzahlFreieParkplaetze} Plätze frei");
+                Console.WriteLine($"{anzahlFreieParkplaetze} / {parkhaus!.Length} Plätze frei");
             }
             else
             {
