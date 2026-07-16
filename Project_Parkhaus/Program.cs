@@ -6,7 +6,7 @@ namespace Project_Parkhaus
     internal class Program
     {
         //Speichert die Autodaten im Format "Zeitstempel,Ticketnummer". Jedes Element repräsentiert einen Parkplatz
-        static String[] parkhaus;
+        static string[]? parkhaus;
 
         static int ersteFreieParkstelle, stunde, anzahlFreieParkplaetze;
         static void Main(string[] args)
@@ -23,14 +23,13 @@ namespace Project_Parkhaus
                 //Stunde inkrementieren
                 stunde++;
             }
-
         }
 
         //Initialisiert das Array mit leeren Strings. Bei einer normalen Initialisierung sind die Strings null.
-        //Leere Strings sind nötig für spätere Checks.
+        //Leere Strings werden für die null-Sucherhet bei späteren Checks verwendet.
         static void parkhausIntitalizieren()
         {
-            parkhaus = new String[100];
+            parkhaus = new string[100];
             for (int i = 0; i < parkhaus.Length; i++)
             {
                 parkhaus[i] = string.Empty;
@@ -46,7 +45,7 @@ namespace Project_Parkhaus
             ersteFreieParkstelle = -1;
             for (int i = 0; i < parkhaus.Length; i++)
             {
-                String auto = parkhaus[i];
+                string auto = parkhaus[i];
                 if (auto == "")
                 {
                     //Parkplatz nicht belegt, also freie Parkplätze inkrementieren und den Check für den ersten freien Parkplatz machen
@@ -55,7 +54,6 @@ namespace Project_Parkhaus
                     {
                         ersteFreieParkstelle = i;
                     }
-
                 }
                 else
                 {
@@ -65,13 +63,13 @@ namespace Project_Parkhaus
         }
 
         //Gibt den Stundenteil der gespeicheten Autodaten
-        static int stundenKonvertieren(String auto)
+        static int stundenKonvertieren(string auto)
         {
             return Convert.ToInt32(auto.Split(",")[0]);
         }
 
         //Gibt den Ticketnummer der gespeicheten Autodaten
-        static int ticketNummerKonvertrieren(String auto)
+        static int ticketNummerKonvertrieren(string auto)
         {
             return Convert.ToInt32(auto.Split(",")[1]);
         }
@@ -231,7 +229,7 @@ namespace Project_Parkhaus
             }
         }
 
-        // Hilfsmethode für Fehler im passenden Stil
+        // Hilfsmethode für Fehleranzeige im passenden Stil. Passt sich an die Länge der Nachricht an.
         static void ZeigeFehler(string nachricht)
         {
             int innenBreite = nachricht.Length + 10;
@@ -272,9 +270,9 @@ namespace Project_Parkhaus
         static void parken()
         {
             int ticketNummer = ersteFreieParkstelle;
-            parkhaus[ersteFreieParkstelle] = stunde.ToString() + "," + ticketNummer.ToString();
+            parkhaus![ersteFreieParkstelle] = stunde.ToString() + "," + ticketNummer.ToString();
 
-            // Die Daten ohne Rahmen-Formatierung
+            // Die Daten ohne Rahmen-Formatierung. +1, da die Anzeige für den Nutzer bei 1 beginnt, nicht bei 0.
             string titel = "TICKET ERFOLGREICH ERSTELLT";
             string zeile1 = "• Ihr Parkplatz: " + (ersteFreieParkstelle + 1);
             string zeile2 = "• Ihr Ticket   : Nr. " + (ticketNummer + 1);
